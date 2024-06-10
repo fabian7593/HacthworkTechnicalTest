@@ -28,22 +28,34 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    dataBinding {
+        enable = true
     }
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
+    implementation("androidx.activity:activity-ktx:1.9.0")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
