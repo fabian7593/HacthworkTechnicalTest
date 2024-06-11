@@ -23,7 +23,7 @@
                 android:id="@+id/textJsonResponse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.testResponse}"
+                android:text="@{viewModel.articlesLiveData.toString()}"
                 android:textSize="24sp"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>

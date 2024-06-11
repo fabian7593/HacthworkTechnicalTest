@@ -2,11 +2,9 @@ package com.hatchworks.newyorktimes.views
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
 import com.hatchworks.newyorktimes.R
 import com.hatchworks.newyorktimes.viewModels.MainViewModel
 import com.hatchworks.newyorktimes.databinding.ActivityMainBinding
-import androidx.lifecycle.ViewModelProvider
 import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +23,10 @@ class MainActivity : AppCompatActivity() {
         // Bind the ViewModel to the layout
         binding.viewModel = viewModel
 
-        // Specify the lifecycle owner to observe LiveData
+        //call the view model with specific params
+        viewModel.callNYTApi(2024, 6)
+
+        // This is the livedata to wait the change into viewModel
         binding.lifecycleOwner = this
 
     }

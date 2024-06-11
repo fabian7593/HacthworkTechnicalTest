@@ -17,6 +17,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "NYT_BASE_URL", "\"${project.properties["NYT_BASE_URL"]}\"")
+        buildConfigField("String", "NYT_API_KEY", "\"${project.properties["NYT_API_KEY"]}\"")
     }
 
     buildTypes {
@@ -40,6 +43,7 @@ android {
 
     buildFeatures {
         dataBinding = true
+        buildConfig = true
     }
 
     dataBinding {
