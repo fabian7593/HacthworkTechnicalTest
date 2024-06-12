@@ -27,7 +27,7 @@ object RetrofitClient {
         .build()
 
     //create the retrofit object with the respective service
-    //this is a public variable, for use as "static"
+    //this is a public variable, to use outside this class, similar like "static"
     val apiService = retrofit.create(NewYorkTimesApiService::class.java)
 }
 
