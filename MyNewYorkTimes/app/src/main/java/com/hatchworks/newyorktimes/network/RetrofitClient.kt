@@ -2,7 +2,7 @@ package com.hatchworks.newyorktimes.network
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.hatchworks.newyorktimes.adapters.ArticleAdapter
+import com.hatchworks.newyorktimes.adapters.ArticleResponseAdapter
 import com.hatchworks.newyorktimes.models.Article
 import com.hatchworks.newyorktimes.utils.GradleInfo
 import retrofit2.Retrofit
@@ -17,7 +17,7 @@ object RetrofitClient {
     //set the adapter of any individual articles.
     //All the articles on the response convert into my own Article Data structure.
     private val gson: Gson = GsonBuilder()
-        .registerTypeAdapter(Article::class.java, ArticleAdapter())
+        .registerTypeAdapter(Article::class.java, ArticleResponseAdapter())
         .create()
 
     //create the builder and necessary settings for use the class

@@ -19,12 +19,22 @@ class MainViewModel : ViewModel() {
     val articlesLiveData: LiveData<List<Article>>
         get() = _articlesLiveData
 
+
+    private val _articleSelectedLiveData = MutableLiveData<Article>()
+    val articleSelectedLiveData: LiveData<Article>
+        get() = _articleSelectedLiveData
+
+    fun setSelectedArticle(article: Article) {
+        _articleSelectedLiveData.value = article
+    }
+
+
     //This is the method to call the main request
     fun callNYTApi(year : Int, month : Int) {
 
         //this ids the instance of call retrofit, and method interface
         val call = RetrofitClient.apiService.getMonthlyArchive(year, month, GradleInfo.apiKey)
-        call
+
         // This is the asyncronous callback from service New York Time
         call.enqueue(object : Callback<ApiResponse> {
 

@@ -8,6 +8,7 @@ import kotlinx.android.parcel.Parcelize
 //This have another list for keyword and Multimedia as well.
 @Parcelize
 data class Article(
+    @SerializedName("headline")
     val headline_main: String,
 
     @SerializedName("abstract")

@@ -20,6 +20,7 @@ android {
 
         buildConfigField("String", "NYT_BASE_URL", "\"${project.properties["NYT_BASE_URL"]}\"")
         buildConfigField("String", "NYT_API_KEY", "\"${project.properties["NYT_API_KEY"]}\"")
+        buildConfigField("String", "NYT_IMG_URL", "\"${project.properties["NYT_IMG_URL"]}\"")
     }
 
     buildTypes {
@@ -60,6 +61,8 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("com.squareup.picasso:picasso:2.8")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

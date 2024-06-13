@@ -1,33 +1,30 @@
 package com.hatchworks.newyorktimes.views
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import com.hatchworks.newyorktimes.R
-import com.hatchworks.newyorktimes.viewModels.MainViewModel
 import com.hatchworks.newyorktimes.databinding.ActivityMainBinding
-import androidx.activity.viewModels
 
+//The main activity to start the application
 class MainActivity : AppCompatActivity() {
 
-    //this is the variable for view binding
+    //This is the data binding of the layout view
     private lateinit var binding: ActivityMainBinding
 
-    //this is the view model variable instance by viewModels
-    private val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Inflate the layout using Data Binding
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        //inflate the xml layout here, set it on the screen
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Bind the ViewModel to the layout
-        binding.viewModel = viewModel
+        //This is for validate the first activity creation
+        if (savedInstanceState == null) {
 
-        //call the view model with specific params
-        viewModel.callNYTApi(2024, 6)
-
-        // This is the livedata to wait the change into viewModel
-        binding.lifecycleOwner = this
-
+            //Replace the fragment container with new fragment, in this case the List of articles.
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ListArticlesFragment())
+                .commit()
+        }
     }
 }

@@ -5,5 +5,7 @@ import com.hatchworks.newyorktimes.BuildConfig
 //If this variables are with important information, these are brought from the gradle.properties
 object GradleInfo {
     val baseUrl: String get() = BuildConfig.NYT_BASE_URL
+    val imgUrl: String get() = BuildConfig.NYT_IMG_URL
     val apiKey: String get() = BuildConfig.NYT_API_KEY
+
 }

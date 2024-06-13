@@ -8,5 +8,8 @@ class Const {
         const val ARCHIVE_PARAM_YEAR = "year"
         const val ARCHIVE_PARAM_MONTH = "month"
         const val ARCHIVE_PARAM_API_KEY = "api-key"
+
+        const val IMG_SUBTYPE_THUMB = "thumbLarge"
+        const val IMG_TYPE = "image"
     }
 }
