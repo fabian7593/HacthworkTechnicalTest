@@ -7,7 +7,7 @@ I need to specific something.
 
 I used the new york times API, I send you to email, some of those important and secure information.
 
-I honestly used XML instead jetpack compose for 2 reasons, 1 I have more experience in XML, 2 When I asked for what technology I should use, I was waiting the reply for 2 days around.
+I honestly used XML instead jetpack compose because I have more experience in XML.
 
 I prefer to use List view instead Recycler View, because its for me so easly to implement, as well the linear layout instead constraints layout (This just for test reasons).
 
