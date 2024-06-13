@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="article_detail"
+            type="com.hatchworks.newyorktimes.viewModels.ArticlesViewModel" />
+    </data>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/article_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_detail"
+            android:background="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/headline_detail_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@{article_detail.articleSelectedLiveData.headline_main}"
+            android:padding="@dimen/padding_detail" />
+
+        <TextView
+            android:id="@+id/abstract_detail_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{article_detail.articleSelectedLiveData.abstract}"
+            android:paddingStart="@dimen/padding_detail"
+            android:paddingEnd="@dimen/padding_detail"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:id="@+id/description_detail_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{article_detail.articleSelectedLiveData.description}"
+            android:paddingStart="@dimen/padding_detail"
+            android:paddingEnd="@dimen/padding_detail"
+            android:paddingBottom="@dimen/padding_detail" />
+
+        <TextView
+            android:id="@+id/section_name_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Section: "
+            android:textColor="@color/primary"
+            android:paddingStart="@dimen/padding_detail"
+            android:paddingEnd="@dimen/padding_detail"
+            android:paddingBottom="@dimen/padding_information" />
+
+        <TextView
+            android:id="@+id/section_detail_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{article_detail.articleSelectedLiveData.section_name}"
+            android:paddingStart="@dimen/padding_detail"
+            android:paddingEnd="@dimen/padding_detail"
+            android:paddingBottom="@dimen/padding_detail" />
+
+        <TextView
+            android:id="@+id/pub_date_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Publication Date: "
+            android:textColor="@color/primary"
+            android:paddingStart="@dimen/padding_detail"
+            android:paddingEnd="@dimen/padding_detail"
+            android:paddingBottom="@dimen/padding_information" />
+
+        <TextView
+            android:id="@+id/pub_date_detail_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{article_detail.articleSelectedLiveData.pub_date}"
+            android:paddingStart="@dimen/padding_detail"
+            android:paddingEnd="@dimen/padding_detail"
+            android:paddingBottom="@dimen/padding_detail" />
+
+        <TextView
+            android:id="@+id/by_line_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="By Line: "
+            android:textColor="@color/primary"
+            android:paddingStart="@dimen/padding_detail"
+            android:paddingEnd="@dimen/padding_detail"
+            android:paddingBottom="@dimen/padding_information" />
+
+        <TextView
+            android:id="@+id/by_line_detail_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@{article_detail.articleSelectedLiveData.by_line_original}"
+            android:paddingStart="@dimen/padding_detail"
+            android:paddingEnd="@dimen/padding_detail"
+            android:paddingBottom="@dimen/padding_detail" />
+    </LinearLayout>
+</ScrollView>
+
+</layout>

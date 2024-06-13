@@ -14,6 +14,9 @@ data class Article(
     @SerializedName("abstract")
     val abstract: String?,
 
+    @SerializedName("lead_paragraph")
+    val description: String?,
+
     @SerializedName("section_name")
     val section_name: String?,
 

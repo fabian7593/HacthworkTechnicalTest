@@ -44,17 +44,11 @@ class ArticleListAdapter(context: Context, articles: List<Article>) :
             //set the specific data article
         binding?.article = article
 
-
         article?.multimedia?.let { multimediaList ->
-            val thumbnailUrl = GeneralUtils.getUrlMultimedia(multimediaList, Const.IMG_SUBTYPE_THUMB)
-
-            Picasso.get()
-                .load(if (thumbnailUrl != null) GradleInfo.imgUrl + thumbnailUrl else null)
-                .fit()
-                .centerInside()
-                .placeholder(R.drawable.ic_hatchworks)
-                .error(R.drawable.ic_hatchworks)
-                .into(binding?.articleImage)
+            val thumbnailUrl =
+                GeneralUtils.getUrlMultimedia(multimediaList, Const.IMG_SUBTYPE_THUMB)
+            // Set image view with picasso
+            GeneralUtils.setPicassoToImageView(thumbnailUrl, binding?.articleImage)
         }
 
         //ensure the execution of pending bindings

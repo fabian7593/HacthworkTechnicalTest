@@ -14,7 +14,7 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/articleImage"
+            android:id="@+id/article_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"/>
@@ -28,7 +28,7 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/articleTitle"
+                android:id="@+id/article_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{article.headline_main}"
@@ -37,10 +37,19 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/articleDescription"
+                android:id="@+id/article_abstract"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{article.abstract}"
+                android:maxLines="2"
+                android:textSize="12dp"
+                />
+
+            <TextView
+                android:id="@+id/article_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{article.description}"
                 android:maxLines="2"
                 android:textSize="12dp"
                 />

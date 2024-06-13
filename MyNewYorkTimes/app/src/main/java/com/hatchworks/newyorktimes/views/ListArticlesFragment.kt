@@ -1,6 +1,5 @@
 package com.hatchworks.newyorktimes.views
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,17 +11,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.hatchworks.newyorktimes.adapters.ArticleListAdapter
 import com.hatchworks.newyorktimes.databinding.FragmentListArticlesBinding
-import com.hatchworks.newyorktimes.viewModels.MainViewModel
+import com.hatchworks.newyorktimes.viewModels.ArticlesViewModel
 import com.hatchworks.newyorktimes.models.Article
+import com.hatchworks.newyorktimes.utils.GeneralUtils
 
 class ListArticlesFragment : Fragment() {
 
     //THIS is the variable to use the view model
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: ArticlesViewModel
     //data binding
     private lateinit var binding: FragmentListArticlesBinding
     //List of Articles data
     private lateinit var adapter: ArrayAdapter<Article>
+
+    private var hasLoadedData = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,12 +38,20 @@ class ListArticlesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //view model initialization
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ArticlesViewModel::class.java)
 
         setAdapter()
         setEvents()
         setObserver()
-        callApi(2024, 4)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // Call the API only if the data has not been loaded yet
+        //call the api with the corrent month and the current year
+        if (!hasLoadedData) {
+            callApi(GeneralUtils.getCurrentYear(), GeneralUtils.getCurrentMonth())
+        }
     }
 
     fun setAdapter(){
@@ -61,7 +71,7 @@ class ListArticlesFragment : Fragment() {
 
                 //Redirect fragment to detail fragment
                 requireActivity().supportFragmentManager.beginTransaction()
-                    // .replace(R.id.fragment_container, ArticleDetailFragment())
+                    .replace(com.hatchworks.newyorktimes.R.id.fragment_container, DetailArticleFragment())
                     .addToBackStack(null)
                     .commit()
             }
@@ -71,7 +81,9 @@ class ListArticlesFragment : Fragment() {
         //The observer to change the articles, and update the adapter
         viewModel.articlesLiveData.observe(viewLifecycleOwner, Observer { articles ->
             adapter.clear()
-            adapter.addAll(articles)
+            if(articles != null){
+                adapter.addAll(articles)
+            }
             adapter.notifyDataSetChanged()
         })
     }
@@ -79,5 +91,6 @@ class ListArticlesFragment : Fragment() {
     fun callApi(year : Int, month : Int){
         // Call the NYT Api
         viewModel.callNYTApi(year, month)
+        hasLoadedData = true
     }
 }

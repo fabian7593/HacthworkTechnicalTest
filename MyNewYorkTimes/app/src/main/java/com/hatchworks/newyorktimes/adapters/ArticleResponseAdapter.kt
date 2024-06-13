@@ -16,6 +16,7 @@ class ArticleResponseAdapter : JsonDeserializer<Article> {
         //if the results is not null continue after ?, then asign null
         val headlineMain = jsonObject.get("headline")?.asJsonObject?.get("main")?.asString ?: ""
         val abstractText = jsonObject.get("abstract")?.asString
+        val description = jsonObject.get("lead_paragraph")?.asString
         val sectionName = jsonObject.get("section_name")?.asString
         val pubDate = jsonObject.get("pub_date")?.asString
         val webUrl = jsonObject.get("web_url")?.asString
@@ -25,6 +26,7 @@ class ArticleResponseAdapter : JsonDeserializer<Article> {
             jsonObject.getAsJsonArray("multimedia"),
             object : TypeToken<List<Multimedia>>() {}.type
         )
+
         val id = jsonObject.get("_id")?.asString
         val source = jsonObject.get("source")?.asString
         val printSection = jsonObject.get("print_section")?.asString
@@ -35,6 +37,7 @@ class ArticleResponseAdapter : JsonDeserializer<Article> {
         return Article(
             headlineMain,
             abstractText,
+            description,
             sectionName,
             pubDate,
             webUrl,

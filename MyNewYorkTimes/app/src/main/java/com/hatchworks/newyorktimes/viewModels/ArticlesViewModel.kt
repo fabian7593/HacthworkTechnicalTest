@@ -12,7 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 //This class have all the logic to refresh the view and to connect with the data.
-class MainViewModel : ViewModel() {
+class ArticlesViewModel : ViewModel() {
 
     //This variable is the information object adapt from the json and the call to the API
     private val _articlesLiveData = MutableLiveData<List<Article>>()
