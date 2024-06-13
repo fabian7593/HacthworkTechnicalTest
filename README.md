@@ -2,9 +2,6 @@
 This is a public repo with a technical test for the company hatchwork, this show a simple app with 2 screens that gets information from another API, 
 
 
-Hello everybody, I've been finished my application test, 
-I need to specific something.
-
 I used the new york times API, I send you to email, some of those important and secure information.
 
 I honestly used XML instead jetpack compose because I have more experience in XML.
